@@ -1,5 +1,7 @@
 <?php
 
+
+use App\Http\Controllers\ConferenceController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -26,4 +28,9 @@ Route::delete('admin/user/{id}', [UserController::class, 'destroy'])->name('admi
 
 //Admin Conferences Management Routes
 Route::get('conference', [ConferenceController::class, 'index'])->name('conference.index'); // List all conferences
-
+Route::get('conference/show/{conference}', [ConferenceController::class, 'show'])->name('conference.show');
+Route::get('conference/create', [ConferenceController::class, 'create'])->name('conference.create'); // Show form to
+Route::post('conference', [ConferenceController::class, 'store'])->name('conference.store'); // Store new conference
+Route::get('conference/edit/{conference}', [ConferenceController::class, 'edit'])->name('conference.edit'); // Show form to edit an existing conference
+Route::put('conference/{conference}', [ConferenceController::class, 'update'])->name('conference.update'); // Update the existing conference
+Route::delete('conference/{id}', [ConferenceController::class, 'destroy'])->name('conference.destroy'); // Delete a conference
