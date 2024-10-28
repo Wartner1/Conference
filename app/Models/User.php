@@ -9,6 +9,11 @@ use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
+
+    public function conferences()
+    {
+        return $this->belongsToMany(Conference::class, 'conferences_users');
+    }
     use HasFactory, Notifiable;
 
     /**

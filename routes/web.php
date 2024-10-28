@@ -1,6 +1,6 @@
 <?php
 
-
+use App\Http\Controllers\ClientController;
 use App\Http\Controllers\ConferenceController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\UserController;
@@ -12,8 +12,16 @@ Route::post('student/register', [StudentController::class, 'register'])->name('s
 Route::get('/profile', [StudentController::class, 'profile'])->name('student.profile');
 
 //Clients Routes
+Route::get('client', [ClientController::class, 'index'])->name('client.index'); // List all clients
 Route::get('client/create', [ClientController::class, 'create'])->name('client.create'); // Show form to
-
+Route::post('client', [ClientController::class, 'store'])->name('client.store'); // Store new client
+Route::get('client/show/{conference}', [ClientController::class, 'show'])->name('client.show'); // Show form to edit an existing client
+Route::get('client/edit/{client}', [ClientController::class, 'edit'])->name('client.edit'); // Show form to edit an existing client
+Route::put('client/{client}', [ClientController::class, 'update'])->name('client.update'); // Update the existing client
+Route::delete('client/{id}', [ClientController::class, 'destroy'])->name('client.destroy');
+Route::post('register/conference', [ClientController::class, 'conferenceRegister'])->name('conference.register');
+//Route::get('conference/{conference}', [ClientController::class, 'conferenceView'])->name('conference.view');
+//
 
 //Employee Routes
 Route::get('employee', [EmployeeController::class, 'index'])->name('employee.index'); // List all employees
