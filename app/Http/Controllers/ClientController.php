@@ -10,7 +10,7 @@ class ClientController extends Controller
 {
     public function create()
     {
-        // This is entery form in to client system
+        // This is entry form in to client system
         return view('client.create');
     }
 
@@ -117,7 +117,7 @@ class ClientController extends Controller
     {
         // Attempt to delete the conference
         try {
-            $id->delete(); // or $adminConferenceManagement->forceDelete(); if using soft deletes
+            $id->delete();
 
             // Flash success message
             session()->flash('success', 'User deleted successfully!');

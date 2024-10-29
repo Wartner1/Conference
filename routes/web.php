@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\ConferenceController;
+use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -20,11 +21,11 @@ Route::get('client/edit/{client}', [ClientController::class, 'edit'])->name('cli
 Route::put('client/{client}', [ClientController::class, 'update'])->name('client.update'); // Update the existing client
 Route::delete('client/{id}', [ClientController::class, 'destroy'])->name('client.destroy');
 Route::post('register/conference', [ClientController::class, 'conferenceRegister'])->name('conference.register');
-//Route::get('conference/{conference}', [ClientController::class, 'conferenceView'])->name('conference.view');
-//
+
 
 //Employee Routes
 Route::get('employee', [EmployeeController::class, 'index'])->name('employee.index'); // List all employees
+Route::get('employee/conference/{conference}', [EmployeeController::class, 'show'])->name('employee.conference.view'); // Show form to edit an existing
 // Admin User Management Routes
 Route::get('admin/user', [UserController::class, 'index'])->name('admin.user.index'); // List all conferences
 Route::get('admin/user/show/{user}', [UserController::class, 'show'])->name('admin.user.show'); // List all conferences
