@@ -25,6 +25,7 @@ class StudentController extends Controller
             'group' => 'required',
             'email' => 'required|unique:users,email',
         ]);
+
         // Create the student user
         $student = User::create([
             'name' => $validatedData['name'],

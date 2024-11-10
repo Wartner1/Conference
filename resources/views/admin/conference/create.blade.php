@@ -1,19 +1,19 @@
 @extends('app')
 @section('content')
-    @if ($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
+@if ($errors->any())
+<div class="alert alert-danger">
+    <ul>
+        @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+</div>
+@endif
     <div class="container mt-5">
         <h2 class="mb-4 text-center" style="color: #4a90e2;">Create Conference</h2>
 
         <form class="p-4 shadow-lg" style="background-color: #fff; border-radius: 8px;"
-              action="{{ route('conference.store') }}" method="POST">
+            action="{{ route('conference.store') }}" method="POST">
             @csrf
             <!-- Conference Name input -->
             <div class="mb-4 form-outline">
@@ -24,14 +24,14 @@
             <!-- Conference Description input -->
             <div class="mb-4 form-outline">
                 <textarea class="form-control" id="description" name="description" rows="4"
-                          placeholder="Enter Conference description" required></textarea>
+                    placeholder="Enter Conference description" required></textarea>
                 <label class="form-label" for="ConferenceDescription">Conference Description</label>
             </div>
 
             <!-- Lecturers input -->
             <div class="mb-4 form-outline">
                 <input type="text" id="lecturers" name="lecturers" class="form-control"
-                       placeholder="Enter lecturers (comma separated)" required />
+                    placeholder="Enter lecturers (comma separated)" required />
                 <label class="form-label" for="lecturers">Lecturers</label>
             </div>
 
@@ -50,7 +50,7 @@
             <!-- Address input -->
             <div class="mb-4 form-outline">
                 <input type="text" id="address" name="address" class="form-control" placeholder="Enter address"
-                       required />
+                    required />
                 <label class="form-label" for="ConferenceAddress">Address</label>
             </div>
 

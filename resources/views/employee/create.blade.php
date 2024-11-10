@@ -26,26 +26,26 @@
         <h2 class="mb-4 text-center" style="color: #4a90e2;">Create Conference</h2>
 
         <form class="p-4 shadow-lg" style="background-color: #fff; border-radius: 8px;"
-              action="{{ route('conference.store') }}" method="POST">
+            action="{{ route('conference.store') }}" method="POST">
             @csrf
             <!-- Course Name input -->
             <div class="mb-4 form-outline">
                 <input type="text" id="name" class="form-control" placeholder="Enter name" name="name"
-                       required />
+                    required />
                 <label class="form-label" for="courseName">Course Name</label>
             </div>
 
             <!-- Course Description input -->
             <div class="mb-4 form-outline">
                 <textarea class="form-control" id="description" name="description" rows="4" placeholder="Enter course description"
-                          required></textarea>
+                    required></textarea>
                 <label class="form-label" for="courseDescription">Course Description</label>
             </div>
 
             <!-- Lecturers input -->
             <div class="mb-4 form-outline">
                 <input type="text" id="lecturers" name="lecturers" class="form-control"
-                       placeholder="Enter lecturers (comma separated)" required />
+                    placeholder="Enter lecturers (comma separated)" required />
                 <label class="form-label" for="lecturers">Lecturers</label>
             </div>
 
@@ -64,7 +64,7 @@
             <!-- Address input -->
             <div class="mb-4 form-outline">
                 <input type="text" id="address" name="address" class="form-control" placeholder="Enter address"
-                       required />
+                    required />
                 <label class="form-label" for="courseAddress">Address</label>
             </div>
 

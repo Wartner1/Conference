@@ -82,18 +82,18 @@
 
                                 <table class="table table-striped">
                                     <thead>
-                                    <tr>
-                                        <th scope="col">Name</th>
-                                        <th scope="col">Sur Name</th>
-                                    </tr>
+                                        <tr>
+                                            <th scope="col">Name</th>
+                                            <th scope="col">Sur Name</th>
+                                        </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach ($users as $user)
-                                        <tr>
-                                            <td>{{ $user->name }}</td>
-                                            <td>{{ $user->sur_name }}</td>
-                                        </tr>
-                                    @endforeach
+                                        @foreach ($users as $user)
+                                            <tr>
+                                                <td>{{ $user->name }}</td>
+                                                <td>{{ $user->sur_name }}</td>
+                                            </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>

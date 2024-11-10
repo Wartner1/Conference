@@ -21,31 +21,31 @@
 
         <table class="table table-striped">
             <thead>
-            <tr>
-                <th scope="col">Id</th>
-                <th scope="col">Name</th>
-                <th scope="col">Date</th>
-                <th scope="col">Time</th>
-                <th scope="col">Lecturers</th>
-                <th scope="col">Address</th>
-                <th scope="col">Action</th>
-            </tr>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Time</th>
+                    <th scope="col">Lecturers</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">Action</th>
+                </tr>
             </thead>
             <tbody>
-            @foreach ($conferences as $conference)
-                <tr>
-                    <th scope="row">{{ $conference->id }}</th>
-                    <td>{{ $conference->name }}</td>
-                    <td>{{ $conference->date }}</td>
-                    <td>{{ $conference->time }}</td>
-                    <td>{{ $conference->lecturers }}</td>
-                    <td>{{ $conference->address }}</td>
-                    <td>
-                        <a href="{{ route('employee.conference.view', $conference->id) }}"
-                           class="btn btn-primary btn-sm">View</a>
-                    </td>
-                </tr>
-            @endforeach
+                @foreach ($conferences as $conference)
+                    <tr>
+                        <th scope="row">{{ $conference->id }}</th>
+                        <td>{{ $conference->name }}</td>
+                        <td>{{ $conference->date }}</td>
+                        <td>{{ $conference->time }}</td>
+                        <td>{{ $conference->lecturers }}</td>
+                        <td>{{ $conference->address }}</td>
+                        <td>
+                            <a href="{{ route('employee.conference.view', $conference->id) }}"
+                                class="btn btn-primary btn-sm">View</a>
+                        </td>
+                    </tr>
+                @endforeach
             </tbody>
         </table>
     </div>

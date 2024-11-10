@@ -114,12 +114,12 @@ class ConferenceController extends Controller
     {
         // Attempt to delete the conference
         try {
-            $id->delete();
+            $id->delete(); // or $adminConferenceManagement->forceDelete(); if using soft deletes
 
             // Flash success message
             session()->flash('success', 'Conference deleted successfully!');
         } catch (\Exception $e) {
-            // Handle any errors during deletion
+            // Handle any errors during deletion (optional)
             session()->flash('error', 'An error occurred while deleting the conference: '.$e->getMessage());
         }
 

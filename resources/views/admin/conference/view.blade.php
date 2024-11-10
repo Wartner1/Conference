@@ -77,23 +77,23 @@
                                 <h2 class="mb-4 text-center" style="color: #4a90e2;">Registered Users</h2>
                                 <table class="table table-striped">
                                     <thead>
-                                    <tr>
-                                        <th scope="col">Name</th>
-                                        <th scope="col">Sur Name</th>
-                                        <th scope="col">Action</th>
-                                    </tr>
+                                        <tr>
+                                            <th scope="col">Name</th>
+                                            <th scope="col">Sur Name</th>
+                                            <th scope="col">Action</th>
+                                        </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach ($users as $user)
-                                        <tr>
-                                            <td>{{ $user->name }}</td>
-                                            <td>{{ $user->sur_name }}</td>
-                                            <td>
-                                                <a href="{{ route('admin.user.show', $user->id) }}"
-                                                   class="btn btn-primary btn-sm">View</a>
-                                            </td>
-                                        </tr>
-                                    @endforeach
+                                        @foreach ($users as $user)
+                                            <tr>
+                                                <td>{{ $user->name }}</td>
+                                                <td>{{ $user->sur_name }}</td>
+                                                <td>
+                                                    <a href="{{ route('admin.user.show', $user->id) }}"
+                                                        class="btn btn-primary btn-sm">View</a>
+                                                </td>
+                                            </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>

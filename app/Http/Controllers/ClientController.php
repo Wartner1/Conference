@@ -5,24 +5,27 @@ namespace App\Http\Controllers;
 use App\Models\Conference;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth as FacadesAuth;
 
 class ClientController extends Controller
 {
     public function create()
     {
-        // This is entry form in to client system
+        // This is entery form in to client system
         return view('client.create');
     }
 
     public function index(Request $request)
     {
+        if(FacadesAuth::user()->type != 'client'){
+            return redirect()->route('login');
+        }
         // This function is for showing all the listing of confereces when user can registered and view conference
         $conferences = Conference::all();
-        $user = User::find($request->get('user')); // Get the user by ID from the query parameters
-
         return view('client.list', [
             'conferences' => $conferences,
-            'user' => $user, // Pass the user to the view
+            'user' => FacadesAuth::user(),
+
         ]);
     }
 
@@ -69,9 +72,9 @@ class ClientController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Conference $conference)
+    public function show($conferenceId)
     {
-        //This function is for showing the details
+$conference = Conference::find($conferenceId);        //This function is for showing the details
         return view('client.view', [
             'conference' => $conference,
         ]);
@@ -117,7 +120,7 @@ class ClientController extends Controller
     {
         // Attempt to delete the conference
         try {
-            $id->delete();
+            $id->delete(); // or $adminConferenceManagement->forceDelete(); if using soft deletes
 
             // Flash success message
             session()->flash('success', 'User deleted successfully!');

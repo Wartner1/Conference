@@ -9,11 +9,7 @@ use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
-
-    public function conferences()
-    {
-        return $this->belongsToMany(Conference::class, 'conferences_users');
-    }
+    /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable;
 
     /**
@@ -23,12 +19,17 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
-        'email',
         'sur_name',
         'group',
+        'email',
         'type',
-        'password',
+        'password'
     ];
+
+    public function conferences()
+    {
+        return $this->belongsToMany(Conference::class, 'conferences_users');
+    }
 
     /**
      * The attributes that should be hidden for serialization.
