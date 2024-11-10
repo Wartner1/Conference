@@ -115,7 +115,7 @@ class UserController extends Controller
     {
         // Attempt to delete the conference
         try {
-            $id->delete(); // or $AdminUserManagement->forceDelete(); if using soft deletes
+            $id->delete();
 
             // Flash success message
             session()->flash('success', 'User deleted successfully!');
